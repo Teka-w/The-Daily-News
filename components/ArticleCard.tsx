@@ -16,7 +16,8 @@ type ArticleCardType = {
 };
 export const ArticleCard = (props: ArticleCardType) => {
   const { title, description, author, date, image, imageAlt, category, slug } = props;
-  const categoryColor = categoryColors[category] 
+  const categoryColor = categoryColors[category]
+  const authorName = author.split(" ").map((i) => i[0]).join("")
   return (
     <Link href={`/news/${slug}`}>
       <div className="bg-white rounded-2xl overflow-hidden border border-[#E7E5E4] flex flex-col h-full min-w-0 group shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-950/5 focus-visible:border-orange-300 motion-reduce:transform-none motion-reduce:transition-none">
@@ -30,16 +31,13 @@ export const ArticleCard = (props: ArticleCardType) => {
           </span>
         </div>
         <div className="flex flex-1 flex-col p-5 sm:p-6">
-          <h3 className="text-[20px] leading-snug tracking-tight font-bold mb-2 text-[#1C1917]">{title}</h3>
+          <h3 className="text-[20px] leading-snug tracking-tight font-bold mb-2 text-[#1C1917] group-hover:text-[#C44724]">{title}</h3>
           <p className="text-[14px] leading-relaxed text-[#57534E] mt-3">{description}</p>
           <div className="mt-auto pt-6">
             <div className="flex items-center justify-between border-t border-[#E2E2DA] pt-4">
             <div className="flex items-center gap-3">
               <div className={`${categoryColor} w-[40px] h-[40px] rounded-full flex items-center justify-center font-bold text-[12px] ring-1 ring-inset`}>
-                {author
-                  .split(" ")
-                  .map((i) => i[0])
-                  .join("")}
+                {authorName}
               </div>
               <div className="flex flex-col">
                 <span className="text-[#292524] text-[12px] font-bold">{author}</span>

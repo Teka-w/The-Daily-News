@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Suspense } from "react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -31,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <footer className="border-t border-line py-9 text-[#E2E2DA]">
           <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 flex flex-wrap items-center justify-between gap-6 ">
             <div>
-              <Link className="inline-flex items-center gap-2 text-3xl font-bold tracking-tighter text-[#22241F] scroll-smooth" href="/">
+              <Link className="inline-flex items-center gap-2 text-3xl font-bold tracking-tighter text-[#22241F]" href="/">
                 the daily
                 <span className="text-red-700">▧</span>
               </Link>
